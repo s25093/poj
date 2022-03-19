@@ -105,12 +105,7 @@ public class Main {
     }
 
     public static int smallestArrayElement(ArrayList<Integer> array) {
-        int min = 0;
-        for (int i = 0; i < array.size(); i++) {
-            if (array.get(i) > min) {
-                min = array.get(i);
-            }
-        }
+        int min = array.get(0);
         for (int i = 0; i < array.size(); i++) {
             if (array.get(i) < min) {
                 min = array.get(i);
