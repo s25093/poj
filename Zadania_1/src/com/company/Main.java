@@ -18,6 +18,7 @@ public class Main {
         //milesToKmTable();
         //System.out.println(dayOfTheWeek());
         //createArray();
+        arrayBasedOnElement();
     }
 
     public static double conversion(double celsius) {
@@ -79,8 +80,76 @@ public class Main {
         System.out.println("Enter the first element: ");
         int element = sc.nextInt();
         ArrayList<Integer> arrayList = new ArrayList<Integer>(length);
-        for (int i = element; i <= length; i += 2) {
-            arrayList.add(element);
+        arrayList.add(element);
+        int a = 0;
+        if (element % 2 == 0) {
+            for (int i = element + 2; a < length - 1; i+= 2) {
+                arrayList.add(i);
+                a++;
+            }
+        } else {
+            for (int j = element + 1; a < length - 1; j += 2) {
+                arrayList.add(j);
+                a++;
+            }
         }
+        for (int i = 0; i < arrayList.size(); i++) {
+            System.out.println(arrayList.get(i));
+            System.out.println("\n");
+        }
+        System.out.println("1. Smallest element: " + smallestArrayElement(arrayList) + "\n" +
+                "2. Largest element: " + largestArrayElement(arrayList) + "\n" +
+                "3. Sum of all elements: " + sumOfElementsArray(arrayList) + "\n" +
+                "4. Average of elements: " + averageOfElementsArray(arrayList) + "\n" +
+                "5. Median of elements: " + medianOfElementsArray(arrayList));
     }
+
+    public static int smallestArrayElement(ArrayList<Integer> array) {
+        int min = 0;
+        for (int i = 0; i < array.size(); i++) {
+            if (array.get(i) > min) {
+                min = array.get(i);
+            }
+        }
+        for (int i = 0; i < array.size(); i++) {
+            if (array.get(i) < min) {
+                min = array.get(i);
+            }
+        }
+        return min;
+    }
+
+    public static int largestArrayElement(ArrayList<Integer> array) {
+        int max = 0;
+        for (int i = 0; i < array.size(); i++) {
+            if (array.get(i) > max) {
+                max = array.get(i);
+            }
+        }
+        return max;
+    }
+
+    public static int sumOfElementsArray(ArrayList<Integer> array) {
+        int sum = 0;
+        for (int i = 0; i < array.size(); i++) {
+            sum += array.get(i);
+        }
+        return sum;
+    }
+
+    public static double averageOfElementsArray(ArrayList<Integer> array) {
+        return (double) sumOfElementsArray(array) / array.size();
+    }
+
+    public static double medianOfElementsArray(ArrayList<Integer> array) {
+        double median = 0;
+        if (array.size() % 2 == 0) {
+            median = (double) ( array.get(array.size() / 2 - 1) + array.get((array.size() / 2)) ) / 2;
+        } else {
+            int index = array.size() / 2;
+            median = array.get(index);
+        }
+        return median;
+    }
+
 }
