@@ -18,7 +18,8 @@ public class Main {
         //milesToKmTable();
         //System.out.println(dayOfTheWeek());
         //createArray();
-        arrayBasedOnElement();
+        //arrayBasedOnElement();
+        System.out.println(greatestCommonDivisor());
     }
 
     public static double conversion(double celsius) {
@@ -145,6 +146,32 @@ public class Main {
             median = array.get(index);
         }
         return median;
+    }
+
+    public static int greatestCommonDivisor() {
+        int a = 0;
+        int b = 0;
+        int gcd = 1;
+        System.out.println("Enter two numbers:");
+        Scanner sc = new Scanner(System.in);
+        a = sc.nextInt();
+        b = sc.nextInt();
+        if (a > b) {
+            for (int i = a; i > 0; i--) {
+                if (a % i == 0 && b % i == 0) {
+                    gcd = i;
+                    break;
+                }
+            }
+        } else {
+            for (int i = b; i > 0; i--) {
+                if (a % i == 0 && b % i == 0) {
+                    gcd = i;
+                    break;
+                }
+            }
+        }
+        return gcd;
     }
 
 }
