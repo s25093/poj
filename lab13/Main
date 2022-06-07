@@ -24,6 +24,8 @@ public class Main extends Application {
         TextField textField = new TextField();
         textField.setPromptText("Podaj imie");
 
+        Label label = new Label();
+
         DatePicker datePicker = new DatePicker();
         final int[] years = new int[1];
         datePicker.setOnAction((EventHandler) event -> {
@@ -34,17 +36,13 @@ public class Main extends Application {
             if (years[0] < 0) {
                 years[0] = 0;
                 datePicker.setValue(null);
-                System.out.println("Wprowadzono datę w przyszłości.");
+                label.setText("Wprowadzono datę w przyszłości.");
             }
 
         });
 
         Button button = new Button();
         button.setText("Oblicz");
-
-        Label label = new Label();
-
-        System.out.println(years[0]);
 
 
             button.setOnAction((EventHandler) event -> {
